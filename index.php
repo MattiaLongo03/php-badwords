@@ -8,15 +8,21 @@
 </head>
 <body>
     <?php
-        $p='ciao come stai?';
+        $p = 'ciao come stai?';
+        $bad_word = $_GET['bad_word'];
+        $replaced_text = str_ireplace($bad_word, '***', $p);
     ?>
-    <?= $p ?>
-    <?= 'lunghezza p:' ?>
-    <?= strlen($p) ?>
-    <form action="#!">
-        <label for="parolaCensusarata">Parola da Censurare</label>
-        <input type="text" name="parolaCensusarata" id="">
-        <button>Invia</button>
+
+    <?= "Testo: ${p}" ?> 
+    Lunghezza del testo: <?= strlen($p) ?> 
+
+    <form action="" method="GET">
+        <label for="bad_word">Scrivi una parola da censurare:</label>
+        <input type="text" name="bad_word" id="bad_word">
+        <button>Censura</button>
     </form>
+
+    <?= "Testo censurato: ${replaced_text}" ?>
+    Lunghezza del testo censurato: <?= strlen($replaced_text) ?>
 </body>
 </html>
